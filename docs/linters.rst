@@ -9,7 +9,7 @@ flake8
 
 To run flake8: ::
 
-    $ flake8
+    flake8
 
 The config for flake8 is located in setup.cfg. It specifies:
 
@@ -21,7 +21,7 @@ pylint
 
 To run pylint: ::
 
-    $ pylint <python files that you wish to lint>
+    pylint <python files that you wish to lint>
 
 The config for pylint is located in .pylintrc. It specifies:
 
@@ -35,7 +35,7 @@ pycodestyle
 
 This is included in flake8's checks, but you can also run it separately to see a more detailed report: ::
 
-    $ pycodestyle <python files that you wish to lint>
+    pycodestyle <python files that you wish to lint>
 
 The config for pycodestyle is located in setup.cfg. It specifies:
 

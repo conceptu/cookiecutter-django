@@ -22,7 +22,7 @@ Moved to [settings](http://cookiecutter-django.readthedocs.io/en/latest/settings
 
 - To create a **superuser account**, use this command:
 
-      $ python manage.py createsuperuser
+    python manage.py createsuperuser
 
 For convenience, you can keep your normal user logged in on Chrome and your superuser logged in on Firefox (or similar), so that you can see how the site behaves for both kinds of users.
 
@@ -30,19 +30,19 @@ For convenience, you can keep your normal user logged in on Chrome and your supe
 
 Running type checks with mypy:
 
-    $ mypy {{cookiecutter.project_slug}}
+    mypy {{cookiecutter.project_slug}}
 
 ### Test coverage
 
 To run the tests, check your test coverage, and generate an HTML coverage report:
 
-    $ coverage run -m pytest
-    $ coverage html
-    $ open htmlcov/index.html
+    coverage run -m pytest
+    coverage html
+    open htmlcov/index.html
 
 #### Running tests with pytest
 
-    $ pytest
+    pytest
 
 ### Live reloading and Sass CSS compilation
 
@@ -102,7 +102,7 @@ In development, it is often nice to be able to see emails that are being sent fr
 
 4.  Make it executable:
 
-        $ chmod +x MailHog
+    chmod +x MailHog
 
 5.  Spin up another terminal window and start it there:
 

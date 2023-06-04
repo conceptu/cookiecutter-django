@@ -32,14 +32,14 @@ Build the Stack
 
 This can take a while, especially the first time you run this particular command on your development system::
 
-    $ docker-compose -f local.yml build
+    docker-compose -f local.yml build
 
 Generally, if you want to emulate production environment use ``production.yml`` instead. And this is true for any other actions you might need to perform: whenever a switch is required, just do it!
 
 Before doing any git commit, `pre-commit`_ should be installed globally on your local machine, and then::
 
-    $ git init
-    $ pre-commit install
+    git init
+    pre-commit install
 
 Failing to do so will result with a bunch of CI and Linter errors that can be avoided with pre-commit.
 
@@ -51,19 +51,19 @@ This brings up both Django and PostgreSQL. The first time it is run it might tak
 
 Open a terminal at the project root and run the following for local development::
 
-    $ docker-compose -f local.yml up
+    docker-compose -f local.yml up
 
 You can also set the environment variable ``COMPOSE_FILE`` pointing to ``local.yml`` like this::
 
-    $ export COMPOSE_FILE=local.yml
+    export COMPOSE_FILE=local.yml
 
 And then run::
 
-    $ docker-compose up
+    docker-compose up
 
 To run in a detached (background) mode, just::
 
-    $ docker-compose up -d
+    docker-compose up -d
 
 
 Execute Management Commands
@@ -71,8 +71,8 @@ Execute Management Commands
 
 As with any shell command that we wish to run in our container, this is done using the ``docker-compose -f local.yml run --rm`` command: ::
 
-    $ docker-compose -f local.yml run --rm django python manage.py migrate
-    $ docker-compose -f local.yml run --rm django python manage.py createsuperuser
+    docker-compose -f local.yml run --rm django python manage.py migrate
+    docker-compose -f local.yml run --rm django python manage.py createsuperuser
 
 Here, ``django`` is the target service we are executing the commands against.
 
@@ -129,7 +129,7 @@ The three envs we are presented with here are ``POSTGRES_DB``, ``POSTGRES_USER``
 
 One final touch: should you ever need to merge ``.envs/.production/*`` in a single ``.env`` run the ``merge_production_dotenvs_in_dotenv.py``: ::
 
-    $ python merge_production_dotenvs_in_dotenv.py
+    python merge_production_dotenvs_in_dotenv.py
 
 The ``.env`` file will then be created, with all your production envs residing beside each other.
 
@@ -142,7 +142,7 @@ Activate a Docker Machine
 
 This tells our computer that all future commands are specifically for the dev1 machine. Using the ``eval`` command we can switch machines as needed.::
 
-    $ eval "$(docker-machine env dev1)"
+    eval "$(docker-machine env dev1)"
 
 Add 3rd party python packages
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -169,7 +169,7 @@ If you are using the following within your code to debug: ::
 
 Then you may need to run the following for it to work as desired: ::
 
-    $ docker-compose -f local.yml run --rm --service-ports django
+    docker-compose -f local.yml run --rm --service-ports django
 
 
 django-debug-toolbar
@@ -183,8 +183,8 @@ docker
 
 The ``container_name`` from the yml file can be used to check on containers with docker commands, for example: ::
 
-    $ docker logs <project_slug>_local_celeryworker
-    $ docker top <project_slug>_local_celeryworker
+    docker logs <project_slug>_local_celeryworker
+    docker top <project_slug>_local_celeryworker
 
 
 Notice that the ``container_name`` is generated dynamically using your project slug as a prefix
@@ -309,7 +309,7 @@ You should allow the new hostname. ::
 
 Rebuild your ``docker`` application. ::
 
-  $ docker-compose -f local.yml up -d --build
+  docker-compose -f local.yml up -d --build
 
 Go to your browser and type in your URL bar ``https://my-dev-env.local``
 
